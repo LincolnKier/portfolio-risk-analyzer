@@ -42,10 +42,9 @@ This produces:
 - `portfolio_report.png` — the visual report
 - `portfolio_summary.csv` — the metrics table
 
-## Example output
+## Output
 
-Default portfolio: AAPL, MSFT, JNJ, JPM, and VTI (a broad-market ETF as
-a diversifier), each with a set weight.
+Portfolio: NVDA, JPM, JNJ, KO, and CROX (Adds different sectors from mid-cap stocks to large-cap), each with a set weight.
 
 ## Why this project
 
