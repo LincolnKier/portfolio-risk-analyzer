@@ -42,9 +42,58 @@ This produces:
 - `portfolio_report.png` — the visual report
 - `portfolio_summary.csv` — the metrics table
 
-## Output
+## Portfolio Strategy
 
-Portfolio: NVDA, JPM, JNJ, KO, and CROX (Adds different sectors from mid-cap stocks to large-cap), each with a set weight.
+This portfolio intentionally overweights **NVDA (30%)** as the primary
+growth driver, reflecting conviction in AI/semiconductor demand. The
+remaining 70% is diversified across established, low-correlation
+sectors to offset that concentration risk:
+
+- **NVDA (30%)** — semiconductors / AI growth
+- **JPM (20%)** — financials
+- **JNJ (20%)** — healthcare
+- **KO (15%)** — consumer staples
+- **CROX (15%)** — mid-cap consumer growth
+
+The mix tests whether a single high-conviction growth bet can be
+balanced by defensive, non-correlated holdings — exactly what the
+correlation matrix and risk metrics below are built to measure.
+
+## Findings
+
+Running the analyzer on this portfolio produced:
+
+| | Annual Return | Annual Volatility | Sharpe Ratio | Max Drawdown | 95% Daily VaR |
+|---|---|---|---|---|---|
+| **Portfolio** | 35.12% | 22.62% | 1.25 | -37.23% | 2.13% |
+| NVDA | 64.77% | 50.97% | 1.14 | -66.34% | 4.68% |
+| JPM | 23.68% | 24.23% | 0.81 | -38.77% | 2.34% |
+| JNJ | 12.95% | 17.16% | 0.53 | -18.41% | 1.64% |
+| KO | 11.61% | 16.31% | 0.48 | -17.27% | 1.55% |
+| CROX | 15.21% | 54.92% | 0.45 | -73.86% | 4.56% |
+
+**Diversification is doing real work here.** A volatility-weighted
+average of the five holdings alone would put portfolio volatility
+around 34% — the actual portfolio came in at 22.62%, roughly 11-12
+points lower, because these five assets don't move in lockstep.
+
+**Risk-adjusted return improved on every position except NVDA.** The
+portfolio's Sharpe ratio (1.25) beats JPM, JNJ, KO, and CROX
+individually, and comes close to NVDA's own 1.14 — meaning the blend
+captured a large share of NVDA's growth while diversifying away much
+of its risk.
+
+**Drawdown protection is the clearest evidence.** Held alone, NVDA and
+CROX would have produced drawdowns of -66% and -74% respectively. The
+blended portfolio's worst drawdown was -37.23% — close to JPM's
+individual number — showing that JNJ and KO acted as effective
+ballast during downturns.
+
+**Net result:** the portfolio captured roughly half of NVDA's raw
+return (35% vs. 65%) while cutting volatility nearly in half and
+drawdown risk by almost half compared to holding either growth stock
+on its own — a textbook demonstration of diversification improving
+risk-adjusted returns without simply diluting them away.
 
 ## Why this project
 
